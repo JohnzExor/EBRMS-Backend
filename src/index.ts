@@ -10,7 +10,13 @@ app.use(express.json());
 
 app.use("/users", usersRoute);
 app.use("/reports", reportsRoute);
+app.get("/", (request, response) => {
+  response
+    .status(200)
+    .send("Employee Behavior Reporting and Monitoring System API");
+});
 
 app.listen(PORT, () => {
   console.log("app is listening to PORT:", PORT);
 });
+export default app;
