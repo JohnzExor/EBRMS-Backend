@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
-const prisma = new PrismaClient();
+import prisma from "../../prisma/db";
 
 export const getUsers = async (req: Request, res: Response) => {
   const users = await prisma.users.findMany({});
