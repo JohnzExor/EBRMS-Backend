@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "prisma": "^5.7.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2",
+    "save-dev": "^0.0.1-security"
+  },
+  "name": "ebrms-backend",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "node src/index.ts",
+    "dev": "nodemon src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
