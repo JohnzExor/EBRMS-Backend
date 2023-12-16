@@ -17,7 +17,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "node src/index.ts",
-    "dev": "nodemon src/index.ts",
+    "dev": "prisma generate && nodemon src/index.ts",
     "build": "prisma generate",
     "postinstall": "prisma generate"
   },
