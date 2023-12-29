@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model reports {
+  createTimeAt    String? @db.VarChar(55)
+  createdDateAt   String? @db.VarChar(55)
+  dateAndTime     String? @db.VarChar(55)
+  details         String? @db.VarChar(2000)
+  documentID      Int     @id @default(autoincrement())
+  fileStatus      Int?
+  nameToReport    String? @db.VarChar(255)
+  placeOfTheEvent String? @db.VarChar(255)
+  status          Int?
+  uid             Int?
+  violation       String? @db.VarChar(255)
+  users           users?  @relation(fields: [uid], references: [uid], onDelete: NoAction, onUpdate: NoAction, map: "reports_ibfk_1")
+
+  @@index([uid], map: "uid")
+}
+
+model users {
+  email        String?   @db.VarChar(255)
+  isRegistered Int?
+  isSuperUser  Int?
+  password     String?   @db.VarChar(255)
+  status       Int?
+  uid          Int       @id @default(autoincrement())
+  reports      reports[]
+}

@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 import prisma from "../../prisma/db";
 
@@ -43,6 +42,15 @@ export const postReport = async (req: Request, res: Response) => {
       status: status,
       violation: violation,
     },
+  });
+  res.status(200).send(report);
+};
+
+export const updateReportStatus = async (req: Request, res: Response) => {
+  const documentID = req.params.documentID;
+  const report = await prisma.reports.updateMany({
+    where: { documentID: Number(documentID) },
+    data: { status: req.body.status },
   });
   res.status(200).send(report);
 };

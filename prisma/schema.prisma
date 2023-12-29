@@ -12,7 +12,7 @@ model reports {
   createTimeAt    String? @db.VarChar(55)
   createdDateAt   String? @db.VarChar(55)
   dateAndTime     String? @db.VarChar(55)
-  details         String? @db.VarChar(255)
+  details         String? @db.VarChar(2000)
   documentID      Int     @id @default(autoincrement())
   fileStatus      Int?
   nameToReport    String? @db.VarChar(255)
